@@ -1,0 +1,16 @@
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+mat-icon {
+    cursor: pointer;
+}

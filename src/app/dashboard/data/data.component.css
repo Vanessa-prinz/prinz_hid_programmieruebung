@@ -1,0 +1,25 @@
+@media (min-width: 768px) {
+
+    /*Desktop only!*/
+    .desktop-row-height {
+        height: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+    .align-items-center {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+button.active {
+    background-color: rgb(16, 0, 156);
+    color: white;
+}
+
+.table.registration-table th,
+.table.registration-table td {
+    /*text-align: center;*/
+    width: 200px;
+}

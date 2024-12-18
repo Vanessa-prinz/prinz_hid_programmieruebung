@@ -1,0 +1,28 @@
+.row {
+  margin-bottom: -20px;
+}
+
+.mat-form-field {
+  margin-bottom: 10px;
+}
+
+button {
+  width: 50%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: rgb(16, 0, 156);
+}
+
+.toast-container {
+  z-index: 1000;
+}
