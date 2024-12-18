@@ -38,8 +38,6 @@ export class AddDataComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
       this.displayToast(); //Notification Popup bei erfolgreicher Kursanmeldung (Bootstrap)
-    } else {
-      alert('Bitte füllen Sie alle erforderlichen Felder aus.');
     }
   }
 
@@ -48,7 +46,7 @@ export class AddDataComponent implements OnInit {
 
     setTimeout(() => {
       this.showToast = false;
-    }, 3000); //automatisches ausblenden nach 3 Sekunden
+    }, 8000); //automatisches ausblenden nach 8 Sekunden
   }
 
   closeToast(): void { //manuelles ausblenden des Toast
