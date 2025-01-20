@@ -13,13 +13,13 @@
           <div class="col-12 col-md-10">
             <mat-form-field appearance="outline" style="margin-right: 20px;">
               <mat-label>Name</mat-label>
-              <input matInput formControlName="name" />
+              <input aria-label="Formularfeld Name" matInput formControlName="name" />
               <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name ist erforderlich.</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label>Geburtsdatum</mat-label>
-              <input matInput type="date" formControlName="birthdate" />
+              <input aria-label="Formularfeld Geburtsdatum" matInput type="date" formControlName="birthdate" />
               <mat-error *ngIf="registrationForm.get('birthdate')?.hasError('required')">Geburtsdatum ist erforderlich.</mat-error>
             </mat-form-field>
           </div>
@@ -29,19 +29,19 @@
           <div class="col-12 col-md-10 d-flex align-items-center">
             <mat-form-field appearance="outline" style="margin-right: 20px;">
               <mat-label>E-Mail</mat-label>
-              <input matInput type="email" formControlName="email" minlength="8" />
+              <input aria-label="Formularfeld E-Mail" matInput type="email" formControlName="email" minlength="8" />
               <mat-error *ngIf="registrationForm.get('email')?.hasError('minlength')">E-Mail muss mindestens 8 Zeichen lang sein.</mat-error>
               <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">E-Mail ist erforderlich.</mat-error>
             </mat-form-field>
 
-            <mat-checkbox class="newsletter-checkbox" formControlName="newsletter">Zum Newsletter anmelden</mat-checkbox>
+            <mat-checkbox aria-label="Newsletter Checkbox" class="newsletter-checkbox" formControlName="newsletter">Zum Newsletter anmelden</mat-checkbox>
           </div>
         </div>
 
         <div class="row justify-content-center mb-2">
           <div class="col-12 col-md-10">
             <mat-form-field appearance="outline">
-              <mat-label>Kursauswahl</mat-label>
+              <mat-label aria-label="Kursauswahl">Kursauswahl</mat-label>
               <mat-select formControlName="courseId">
                 <mat-option *ngFor="let course of storeService.courses" [value]="course.id">{{course.name}}, {{course.instructor}}</mat-option>
               </mat-select>
@@ -64,7 +64,7 @@
   <div id="toast" class="toast align-items-center text-bg-success border-0" role="alert" [class.show]="showToast">
     <div class="d-flex">
       <div class="toast-body">Du hast dich erfolgreich für den Kurs angemeldet!</div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()">Schließen</button>
+      <button aria-label="Benachrichtigung zur erfolgreichen Anmeldung schließen" type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()">Schließen</button>
     </div>
   </div>
 </div>

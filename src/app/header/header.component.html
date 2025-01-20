@@ -1,18 +1,18 @@
 <div class="flex">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <button aria-label="Menü" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="['/dashboard']">
+      <button aria-label="Dasboard Seite" mat-menu-item [routerLink]="['/dashboard']">
         <span>Dashboard</span>
       </button>
-      <button mat-menu-item [routerLink]="['/about']">
+      <button aria-label="About Seite" mat-menu-item [routerLink]="['/about']">
         <span>About</span>
       </button>
     </mat-menu>
 
     <h1>{{ title }}</h1>
 
-    <img src={{imagePath}} alt="Logo">
+    <img aria-label="Logo" src={{imagePath}} alt="Logo">
   </div>
   
