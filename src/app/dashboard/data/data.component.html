@@ -7,7 +7,7 @@
 
   <div class="row justify-content-center align-items-center mb-4">
     <div class="col-12 col-md-10">
-      <table class="table table-bordered">
+      <table class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>Kurs</th>
@@ -45,12 +45,12 @@
   </div>
 
   <button class="btn btn-secondary btn-sm mb-2" (click)="sortRegistrations()">
-    Nach Anmeldedatum sortieren ({{ sortAscending ? 'Aufsteigend' : 'Absteigend' }})
+    Nach Anmeldedatum sortieren ({{ sortAscending ? 'AUFSTEIGEND' : 'ABSTEIGEND' }})
   </button>
 
   <div class="row justify-content-center align-items-center mb-4">
     <div class="col-12 col-md-10">
-      <table class="table table-bordered registration-table">
+      <table class="table table-bordered registration-table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -69,9 +69,9 @@
             <td>{{registration.name}}</td>
             <td>{{registration.birthdate | date}}</td>
             <td>{{registration.course.name}}</td>
-            <td>{{ registration.registrationDate | date:'dd.MM.yyyy HH:mm' }}</td>
+            <td>{{ registration.registrationDate | date:"MMM dd, yyyy 'um' hh:mm a" }}</td>
             <td>
-              <button class="btn btn-danger btn-sm" (click)="deleteRegistration(+registration.id)" [disabled]="loadingRows.has(+registration.id)">Abmelden</button>
+              <button aria-label="Abmelden von Kurs" class="btn btn-danger btn-sm" (click)="deleteRegistration(+registration.id)" [disabled]="loadingRows.has(+registration.id)">Abmelden</button>
             </td>
           </tr>
         </tbody>
@@ -80,8 +80,11 @@
   </div>
 
   <div class="row justify-content-center align-items-center">
-    <div class="col-12 col-md-10 text-center">
-      <button class="btn btn-sm btn-primary mx-1 mb-2" [ngClass]="page == storeService.currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages()">{{page}}</button>
-    </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-md-10 text-center">
+        <button aria-label="Zurück zu voherigen Seite" class="btn btn-sm btn-primary mx-1 mb-2" (click)="previousPage()" [disabled]="storeService.currentPage <= 1">Vor</button>
+        <button aria-label="Zu spezifischer Seite wechseln" class="btn btn-sm btn-primary mx-1 mb-2" [ngClass]="page == storeService.currentPage ? 'active' : ''" (click)="selectPage(page)" *ngFor="let page of returnAllPages()">{{page}}</button>
+        <button aria-label="Weiter zu nächsten Seite" class="btn btn-sm btn-primary mx-1 mb-2" (click)="nextPage()" [disabled]="storeService.currentPage >= totalPages()">Zurück</button>
+      </div>
   </div>
 </div>

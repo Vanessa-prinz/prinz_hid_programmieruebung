@@ -30,7 +30,6 @@ button.active {
 
 .overlay-spinner {
     position: absolute;
-    /* Overlay über der Zeile */
     top: 0;
     left: 0;
     right: 0;

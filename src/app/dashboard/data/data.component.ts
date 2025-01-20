@@ -13,6 +13,7 @@ import { BackendService } from '../../shared/backend.service';
 
 export class DataComponent {
   registration: any;
+  filterText: any;
 
   constructor(public storeService: StoreService, private backendService: BackendService) { }
 
@@ -26,12 +27,41 @@ export class DataComponent {
   }
 
   public returnAllPages() {
-    var pagesCount = Math.ceil(this.storeService.registrationTotalCount / 2);
+    var pagesCount = Math.ceil(this.storeService.registrationTotalCount / 4);
     let res = [];
     for (let i = 0; i < pagesCount; i++) {
       res.push(i + 1);
     }
     return res;
+  }
+
+  totalPages() {
+    return Math.ceil(this.storeService.registrationTotalCount / 4);
+  }
+
+  previousPage() {
+    if (this.storeService.currentPage > 1) {
+      this.storeService.currentPage--;
+      this.backendService.getRegistrations(this.storeService.currentPage);
+    }
+  }
+
+  nextPage() {
+    const totalPages = Math.ceil(this.storeService.registrationTotalCount / 4);
+    if (this.storeService.currentPage < totalPages) {
+      this.storeService.currentPage++;
+      this.backendService.getRegistrations(this.storeService.currentPage);
+    }
+  }
+
+  public sortAscending: boolean = true;
+  sortRegistrations() {
+    this.sortAscending = !this.sortAscending;
+    this.storeService.registrations.sort((a, b) => {
+      const dateA = new Date(a.registrationDate).getTime();
+      const dateB = new Date(b.registrationDate).getTime();
+      return this.sortAscending ? dateA - dateB : dateB - dateA;
+    });
   }
 
   deleteRegistration(registrationId: number) {
@@ -45,16 +75,6 @@ export class DataComponent {
         console.error("Fehler beim Löschen der Registrierung.");
         this.loadingRows.delete(registrationId);
       }
-    });
-  }
-
-  public sortAscending: boolean = true;
-  sortRegistrations() {
-    this.sortAscending = !this.sortAscending;
-    this.storeService.registrations.sort((a, b) => {
-      const dateA = new Date(a.registrationDate).getTime();
-      const dateB = new Date(b.registrationDate).getTime();
-      return this.sortAscending ? dateA - dateB : dateB - dateA;
     });
   }
 }

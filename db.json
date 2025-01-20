@@ -71,54 +71,79 @@
   ],
   "registrations": [
     {
+      "id": 1,
+      "name": "Testuser",
+      "birthdate": "2024-11-13",
+      "courseId": "_iL775j",
+      "registrationDate": "2025-01-08T11:51:08.896Z"
+    },
+    {
       "name": "Julia Schabasser",
       "courseId": "_iL775i",
       "birthdate": "1995-02-23",
-      "id": 2,
-      "registrationDate": "2025-01-12T11:51:14.664Z"
+      "registrationDate": "2025-01-09T11:51:08.896Z",
+      "id": 2
     },
     {
       "name": "Julia Schabasser",
       "courseId": "_iL775a",
       "birthdate": "1995-02-23",
-      "registrationDate": "2025-01-14T11:51:14.664Z",
+      "registrationDate": "2025-01-09T12:51:08.896Z",
       "id": 3
+    },
+    {
+      "name": "Vanessa Prinz",
+      "courseId": "_iL775a",
+      "birthdate": "2002-01-10",
+      "newsletter": true,
+      "email": "vanessa.prinz10@gmail.com",
+      "registrationDate": "2025-01-10T02:31:00.738Z",
+      "id": 4
+    },
+    {
+      "name": "Easter Bunny",
+      "courseId": "_iL775j",
+      "birthdate": "2010-03-12",
+      "newsletter": null,
+      "email": "easter.bunny@gmx.at",
+      "registrationDate": "2025-01-12T10:10:00.578Z",
+      "id": 5
     },
     {
       "name": "Test1",
       "courseId": "_iL775j",
       "birthdate": "2000-10-10",
-      "newsletter": true,
+      "newsletter": null,
       "email": "test1@gmail.com",
-      "registrationDate": "2025-01-20T11:50:59.664Z",
-      "id": 4
-    },
-    {
-      "name": "Test2",
-      "courseId": "_iL775i",
-      "birthdate": "2000-10-10",
-      "newsletter": true,
-      "email": "test2@gmail.com",
-      "registrationDate": "2025-01-20T11:51:05.136Z",
-      "id": 5
-    },
-    {
-      "name": "Test2",
-      "courseId": "_iL775i",
-      "birthdate": "2000-10-10",
-      "newsletter": true,
-      "email": "test2@gmail.com",
-      "registrationDate": "2025-01-20T11:51:08.896Z",
+      "registrationDate": "2025-01-20T21:16:42.043Z",
       "id": 6
     },
     {
-      "name": "Test3",
-      "courseId": "_iL775a",
+      "name": "Test2",
+      "courseId": "_iL775j",
       "birthdate": "2000-10-10",
-      "newsletter": true,
-      "email": "test3@gmail.com",
-      "registrationDate": "2025-01-20T11:51:14.664Z",
+      "newsletter": null,
+      "email": "test2@gmail.com",
+      "registrationDate": "2025-01-14T21:16:42.043Z",
       "id": 7
+    },
+    {
+      "name": "Test3",
+      "courseId": "_iL775j",
+      "birthdate": "2000-10-10",
+      "newsletter": null,
+      "email": "test3@gmail.com",
+      "registrationDate": "2025-01-15T21:16:42.043Z",
+      "id": 8
+    },
+    {
+      "name": "Test4",
+      "courseId": "_iL775j",
+      "birthdate": "2000-10-10",
+      "newsletter": null,
+      "email": "test4@gmail.com",
+      "registrationDate": "2025-01-18T21:16:42.043Z",
+      "id": 9
     }
   ]
 }

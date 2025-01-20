@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Validators, FormBuilder, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { StoreService } from '../../shared/store.service';
 import { BackendService } from '../../shared/backend.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,10 +17,12 @@ import { MatSelectModule } from '@angular/material/select';
 })
 
 export class AddDataComponent implements OnInit {
-  constructor(private formbuilder: FormBuilder, public storeService: StoreService, private backendService: BackendService) {
-  }
+  registrationForm: FormGroup;
 
-  public registrationForm: any;
+  constructor(private formbuilder: FormBuilder, public storeService: StoreService, private backendService: BackendService) {
+    this.registrationForm = this.formbuilder.group({
+    })
+  }
 
   ngOnInit(): void {
     this.registrationForm = this.formbuilder.group({
@@ -34,22 +36,27 @@ export class AddDataComponent implements OnInit {
 
   showToast: boolean = false;
 
-  onSubmit() {
-    if (this.registrationForm.valid) {
-      this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
-      this.displayToast(); //Notification Popup bei erfolgreicher Kursanmeldung (Bootstrap)
-    }
-  }
-
   displayToast(): void {
     this.showToast = true;
 
     setTimeout(() => {
       this.showToast = false;
-    }, 8000); //automatisches ausblenden nach 8 Sekunden
+    }, 8000);
   }
 
-  closeToast(): void { //manuelles ausblenden des Toast
+  closeToast(): void {
     this.showToast = false;
+  }
+
+  resetForm() {
+    this.registrationForm.reset();
+  }
+
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
+      this.displayToast();
+      this.resetForm();
+    }
   }
 }
