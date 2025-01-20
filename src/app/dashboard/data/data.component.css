@@ -20,6 +20,30 @@ button.active {
 
 .table.registration-table th,
 .table.registration-table td {
-    /*text-align: center;*/
+    text-align: center;
     width: 200px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.overlay-spinner {
+    position: absolute;
+    /* Overlay über der Zeile */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
 }

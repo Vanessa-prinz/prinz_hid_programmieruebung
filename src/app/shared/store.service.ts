@@ -6,6 +6,7 @@ import { Registration } from './Interfaces/Registration';
   providedIn: 'root'
 })
 export class StoreService {
+  itemsPerPage: any;
 
   constructor() { }
 
